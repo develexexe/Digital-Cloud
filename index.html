@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>YILZISTORE - Toko Digital & Layanan Premium (Netlify Ready)</title>
+    
+    <style>
+        /* Variabel Warna Digital Keren */
+        :root {
+            --dark-bg: #121212;
+            --secondary-bg: #1e1e1e;
+            --primary-text: #e0e0e0;
+            --accent-color: #00bcd4; /* Sian Keren */
+            --button-color: #4CAF50; /* Hijau WhatsApp */
+            --border-color: #333;
+        }
+
+        /* Reset dan Gaya Dasar */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: var(--dark-bg);
+            color: var(--primary-text);
+            line-height: 1.6;
+            scroll-behavior: smooth; 
+        }
+
+        /* Header dan Navigasi */
+        .main-header {
+            background-color: var(--secondary-bg);
+            padding: 15px 50px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+        }
+
+        .logo a {
+            font-size: 1.5em;
+            font-weight: bold;
+            color: var(--accent-color);
+            text-decoration: none;
+            letter-spacing: 1px;
+        }
+
+        .nav-links ul {
+            list-style: none;
+            display: flex;
+        }
+
+        .nav-links ul li {
+            margin-left: 25px;
+        }
+
+        .nav-links a {
+            color: var(--primary-text);
+            text-decoration: none;
+            padding: 5px 10px;
+            border-bottom: 2px solid transparent;
+            transition: border-bottom 0.3s, color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: white;
+            border-bottom: 2px solid var(--accent-color);
+        }
+
+        /* Container Section Umum */
+        section {
+            padding: 80px 50px;
+            min-height: 90vh;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        h2 {
+            font-size: 2.5em;
+            margin-bottom: 40px;
+            text-align: center;
+            color: white;
+            border-bottom: 2px solid var(--accent-color);
+            padding-bottom: 10px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* --- 1. Beranda (HOME) --- */
+        #beranda {
+            text-align: center;
+            padding: 150px 50px;
+            background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)), url('https://via.placeholder.com/1500x800/222222/00bcd4?text=Digital+Project+Background') no-repeat center center/cover;
+        }
+
+        #beranda h1 {
+            font-size: 4em;
+            margin-bottom: 10px;
+            color: white;
+            text-shadow: 0 0 15px var(--accent-color);
+        }
+        
+        #beranda p {
+            font-size: 1.2em;
+            margin-bottom: 30px;
+            color: #ccc;
+        }
+
+        /* --- 2. Login/Register Form Styles --- */
+        #login-register {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            background-color: var(--secondary-bg);
+        }
+
+        .auth-form {
+            background-color: var(--dark-bg);
+            padding: 40px;
+            border-radius: 10px;
+            width: 100%;
+            max-width: 400px;
+            box-shadow: 0 0 20px rgba(0, 188, 212, 0.15);
+        }
+
+        .auth-form label {
+            display: block;
+            margin-top: 15px;
+            margin-bottom: 5px;
+            color: var(--accent-color);
+        }
+
+        .auth-form input {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid var(--border-color);
+            background-color: var(--secondary-bg);
+            color: var(--primary-text);
+            border-radius: 5px;
+        }
+
+        .auth-form button {
+            width: 100%;
+            padding: 10px;
+            background-color: var(--accent-color);
+            color: var(--dark-bg);
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 25px;
+            font-weight: bold;
+            transition: background-color 0.3s;
+        }
+
+        .auth-form button:hover {
+            background-color: #4dd0e1;
+        }
+        
+        .tab-buttons {
+            display: flex;
+            margin-bottom: 20px;
+        }
+
+        .tab-buttons button {
+            background: none;
+            color: var(--primary-text);
+            border: none;
+            padding: 10px 20px;
+            border-bottom: 2px solid transparent;
+            cursor: pointer;
+            transition: border-bottom 0.3s;
+            margin: 0 5px;
+        }
+
+        .tab-buttons button.active {
+            border-bottom: 2px solid var(--accent-color);
+            color: white;
+            font-weight: bold;
+        }
+        
+        .form-content {
+            display: none;
+        }
+        
+        .form-content.active {
+            display: block;
+        }
+        
+        /* --- 3. Daftar Produk --- */
+        #daftar-produk {
+            background-color: var(--dark-bg);
+        }
+
+        .product-grid {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            flex-wrap: wrap;
+        }
+
+        .product-card {
+            background-color: var(--secondary-bg);
+            padding: 20px;
+            width: 300px;
+            border-radius: 8px;
+            border-left: 3px solid var(--accent-color);
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
+            text-align: center;
+            transition: transform 0.3s;
+        }
+        
+        .product-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .product-card h3 {
+            color: white;
+            margin-bottom: 10px;
+        }
+
+        .price {
+            font-size: 1.5em;
+            color: var(--accent-color);
+            font-weight: bold;
+            margin-bottom: 15px;
+        }
+        
+        /* --- 4. Fitur Pesan Sekarang (WhatsApp) --- */
+        .pesan-button {
+            display: block;
+            background-color: var(--button-color); 
+            color: white;
+            padding: 10px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: bold;
+            margin-top: 15px;
+            transition: background-color 0.3s;
+        }
+        
+        .pesan-button:hover {
+            background-color: #388e3c;
+        }
+        
+        /* --- Footer --- */
+        footer {
+            background-color: var(--secondary-bg);
+            text-align: center;
+            padding: 20px;
+            color: #777;
+            font-size: 0.9em;
+            border-top: 1px solid var(--border-color);
+        }
+        
+        @media (max-width: 768px) {
+            .main-header { padding: 15px 20px; }
+            .nav-links ul { display: none; }
+            .auth-form, .product-card { width: 90%; }
+            section { padding: 50px 20px; min-height: auto; }
+            #beranda { padding: 100px 20px; }
+            #beranda h1 { font-size: 3em; }
+            h2 { font-size: 2em; }
+        }
+    </style>
+</head>
+<body>
+
+    <header class="main-header">
+        <div class="logo"><a href="#beranda">YILZISTORE</a></div>
+        <nav class="nav-links">
+            <ul>
+                <li><a href="#beranda">Beranda</a></li>
+                <li><a href="#daftar-produk">Daftar Produk</a></li>
+                <li><a href="#login-register">Login/Register</a></li>
+                <li><a href="https://api.whatsapp.com/send?phone=628123456789&text=Halo%20YilziStore%2C%20saya%20tertarik%20dengan%20layanan%20Anda." target="_blank" style="color: var(--button-color);">Pesan Sekarang (WA)</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section id="beranda">
+        <h1>Inovasi Digital Masa Kini</h1>
+        <p>Solusi terdepan untuk kebutuhan digital Anda. Transaksi cepat, aman, dan mudah.</p>
+        <a href="#daftar-produk" class="pesan-button" style="background-color: var(--accent-color); display: inline-block; width: auto; padding: 12px 30px;">Lihat Katalog</a>
+    </section>
+
+    <hr>
+
+    <section id="daftar-produk">
+        <h2>🛒 Daftar Produk & Layanan</h2>
+        <div class="product-grid">
+            <div class="product-card"><h3>Akun Premium Spotify</h3><p>1 Bulan Full Garansi</p><p class="price">Rp 25.000</p><a href="https://api.whatsapp.com/send?phone=628123456789&text=Halo%20saya%20mau%20beli%20Akun%20Premium%20Spotify%20(Rp%2025.000).%20Mohon%20info%20pembayaran." target="_blank" class="pesan-button">Pesan Sekarang di WA</a></div>
+            <div class="product-card"><h3>Jasa Desain Logo Kustom</h3><p>Mulai dari Konsep Dasar</p><p class="price">Rp 150.000</p><a href="https://api.whatsapp.com/send?phone=628123456789&text=Halo%20saya%20tertarik%20dengan%20Jasa%20Desain%20Logo%20(Rp%20150.000).%20Bisa%20konsultasi%3F" target="_blank" class="pesan-button">Pesan Sekarang di WA</a></div>
+            <div class="product-card"><h3>Lisensi Aplikasi VPN</h3><p>Lisensi 1 Tahun, Kecepatan Penuh</p><p class="price">Rp 80.000</p><a href="https://api.whatsapp.com/send?phone=628123456789&text=Halo%20saya%20mau%20beli%20Layanan%20Aplikasi%20VPN%20(Rp%2080.000).%20Mohon%20info%20pembayaran." target="_blank" class="pesan-button">Pesan Sekarang di WA</a></div>
+        </div>
+    </section>
+
+    <hr>
+
+    <section id="login-register">
+        <h2>🔑 Register & Login</h2>
+        <p style="color: red; font-weight: bold; margin-bottom: 25px;">
+            ⚠️ PERINGATAN: Form ini HANYA SIMULASI DESAIN. Data Registrasi akan dikirim ke email Anda melalui Netlify.
+        </p>
+        <div class="auth-form">
+            
+            <div class="tab-buttons">
+                <button id="tab-register" class="active" onclick="showForm('register')">Register</button>
+                <button id="tab-login" onclick="showForm('login')">Login</button>
+            </div>
+            
+            <div id="register-form" class="form-content active">
+                <h3 style="color: white; text-align: center; margin-bottom: 20px;">Daftar Akun Baru</h3>
+                
+                <form name="registrasi_yilzistore" method="POST" data-netlify="true" onsubmit="return confirmSubmission(this, 'Registrasi');">
+                    
+                    <label for="reg-username">Username</label>
+                    <input type="text" id="reg-username" name="Username" required>
+
+                    <label for="reg-email">Email</label>
+                    <input type="email" id="reg-email" name="Email_User" required>
+                    
+                    <label for="reg-password">Password (Simulasi)</label>
+                    <input type="password" id="reg-password" name="Password_Simulasi" required>
+
+                    <button type="submit">REGISTER</button>
+                </form>
+            </div>
+
+            <div id="login-form" class="form-content">
+                 <h3 style="color: white; text-align: center; margin-bottom: 20px;">Masuk Ke Akun</h3>
+                 <form action="#" method="POST" onsubmit="return confirmSubmission(this, 'Login');">
+                    <label for="log-username">Username/Email</label>
+                    <input type="text" id="log-username" name="Username_Login" required>
+                    
+                    <label for="log-password">Password (Simulasi)</label>
+                    <input type="password" id="log-password" name="Password_Login_Simulasi" required>
+
+                    <button type="submit">LOGIN</button>
+                 </form>
+            </div>
+        </div>
+        
+    </section>
+
+    <hr>
+
+    <section id="fitur-pesan" style="text-align: center; min-height: 50vh;">
+        <h2>💬 Layanan Cepat 24 Jam</h2>
+        <p style="margin-bottom: 30px; color: #ccc;">Butuh bantuan atau ingin custom order? Langsung chat kami!</p>
+        <a href="https://api.whatsapp.com/send?phone=628123456789&text=Halo%20YilziStore%2C%20saya%20ingin%20bertanya%20tentang%20layanan%20Anda." target="_blank" class="pesan-button" style="background-color: #25D366; width: auto; display: inline-block; padding: 15px 40px; font-size: 1.2em;"><span style="font-size: 1.5em; vertical-align: middle;">🟢</span> CHAT VIA WHATSAPP</a>
+    </section>
+
+    <footer>&copy; 2025 YILZISTORE. Dibuat dengan HTML & CSS Sederhana.</footer>
+
+    <script>
+        // Fungsi Tab Login/Register
+        function showForm(formType) {
+            const registerForm = document.getElementById('register-form');
+            const loginForm = document.getElementById('login-form');
+            const tabRegister = document.getElementById('tab-register');
+            const tabLogin = document.getElementById('tab-login');
+
+            if (formType === 'register') {
+                registerForm.classList.add('active');
+                loginForm.classList.remove('active');
+                tabRegister.classList.add('active');
+                tabLogin.classList.remove('active');
+            } else {
+                loginForm.classList.add('active');
+                registerForm.classList.remove('active');
+                tabLogin.classList.add('active');
+                tabRegister.classList.remove('active');
+            }
+        }
+
+        // Fungsi Konfirmasi Pengiriman (Simulasi)
+        function confirmSubmission(form, type) {
+            if (type === 'Registrasi') {
+                alert('Pesan: Data Registrasi dikirim ke Netlify. Silakan cek dashboard Netlify Anda untuk melihat data.');
+                // Mengembalikan nilai TRUE agar Netlify Forms dapat memproses data
+                return true; 
+            } else {
+                alert('Peringatan: Fungsi Login HANYA SIMULASI. Login membutuhkan sistem backend yang aman.');
+                // Mengembalikan nilai FALSE karena Login tidak boleh diproses oleh Netlify Forms
+                return false; 
+            }
+        }
+        
+        document.addEventListener('DOMContentLoaded', () => {
+            showForm('register');
+        });
+    </script>
+</body>
+</html>
