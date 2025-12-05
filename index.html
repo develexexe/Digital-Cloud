@@ -3,17 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>StyzenStore - Toko Layanan Digital</title>
+    <title>StyzenID Digital - Revisi & Desain Website Murah</title>
     
     <style>
-        /* Variabel Warna Digital Keren */
+        /* Variabel Warna Profesional */
         :root {
-            --dark-bg: #121212;
-            --secondary-bg: #1e1e1e;
+            --dark-bg: #1a1a2e; /* Biru Gelap Tua */
+            --secondary-bg: #2c2c44; 
             --primary-text: #e0e0e0;
-            --accent-color: #00bcd4; /* Sian Keren */
-            --button-color: #4CAF50; /* Hijau WhatsApp */
-            --border-color: #333;
+            --accent-color: #00bcd4; /* Sian */
+            --button-color: #4CAF50; /* Hijau WA */
+            --border-color: #444466;
         }
 
         /* [Reset dan Gaya Dasar] */
@@ -31,7 +31,7 @@
             scroll-behavior: smooth; 
         }
 
-        /* --- Header dan Navigasi Atas (Tab Kontrol) --- */
+        /* --- Header dan Navigasi Atas (Tombol Tab) --- */
         .main-header {
             background-color: var(--secondary-bg);
             padding: 15px 50px;
@@ -41,7 +41,7 @@
             position: sticky;
             top: 0;
             z-index: 100;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
         }
 
         .logo a {
@@ -52,14 +52,8 @@
             letter-spacing: 1px;
         }
 
-        .nav-links ul { 
-            list-style: none; 
-            display: flex; 
-        }
-
-        .nav-links ul li { 
-            margin-left: 25px; 
-        }
+        .nav-links ul { list-style: none; display: flex; }
+        .nav-links ul li { margin-left: 20px; }
 
         .nav-links a { 
             color: var(--primary-text); 
@@ -67,10 +61,9 @@
             padding: 5px 0; 
             border-bottom: 3px solid transparent; 
             transition: border-bottom 0.3s, color 0.3s;
-            font-size: 1.1em;
+            font-size: 1em;
         }
 
-        .nav-links a:hover,
         .nav-links a.active {
             color: white;
             border-bottom: 3px solid var(--accent-color);
@@ -97,49 +90,83 @@
             to { opacity: 1; }
         }
         
-        /* --- Style Khusus Beranda --- */
-        .product-highlight {
+        h2 {
+            font-size: 2.5em;
+            margin-bottom: 40px;
+            text-align: center;
+            color: white;
+            border-bottom: 2px solid var(--accent-color);
+            padding-bottom: 10px;
+            max-width: 800px;
+            margin: 0 auto 40px;
+        }
+
+        /* --- Home/Beranda Styles --- */
+        .hero-section {
+            text-align: center;
+            padding: 40px 0;
+        }
+        
+        .hero-section h1 {
+            font-size: 3em;
+            color: white;
+            text-shadow: 0 0 8px rgba(0, 188, 212, 0.4);
+        }
+
+        .service-list {
             display: flex;
-            align-items: center;
             justify-content: center;
-            gap: 40px;
-            margin-top: 40px;
-            padding: 30px;
+            gap: 20px;
+            margin-top: 30px;
+        }
+        
+        .service-item {
             background-color: var(--secondary-bg);
-            border-radius: 10px;
-            box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+            padding: 20px;
+            border-left: 3px solid var(--button-color);
+            border-radius: 5px;
+            width: 300px;
+            text-align: left;
         }
 
-        .highlight-img {
-            max-width: 40%;
+        /* --- Produk & Portofolio Grid Styles --- */
+        .product-grid, .portfolio-grid { 
+            display: flex; 
+            justify-content: center; 
+            gap: 30px; 
+            flex-wrap: wrap; 
+        }
+
+        .product-card { 
+            background-color: var(--secondary-bg); 
+            padding: 20px; 
+            width: 300px; 
+            border-radius: 8px; 
+            border: 1px solid var(--border-color); 
+            text-align: center; 
+        }
+
+        .portfolio-item {
+            background-color: var(--secondary-bg);
+            padding: 15px;
+            width: 350px;
             border-radius: 8px;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+            text-align: center;
         }
-
-        .highlight-detail {
-            max-width: 50%;
-            text-align: left;
-        }
-
-        .highlight-detail h2 {
-            color: var(--accent-color);
-            border-bottom: none;
-            text-align: left;
+        
+        .portfolio-item img {
+            width: 100%;
+            height: auto;
+            border-radius: 5px;
             margin-bottom: 10px;
         }
 
-        .highlight-detail .price {
-            font-size: 1.8em;
-            color: var(--button-color);
-            font-weight: bold;
-            margin: 15px 0;
+        .price { 
+            font-size: 1.5em; 
+            color: var(--accent-color); 
+            font-weight: bold; 
+            margin-bottom: 15px; 
         }
-        
-        /* --- Style Produk Grid (Digunakan juga di tab Produk) --- */
-        .product-grid { display: flex; justify-content: center; gap: 30px; flex-wrap: wrap; }
-        .product-card { background-color: var(--secondary-bg); padding: 20px; width: 300px; border-radius: 8px; border-left: 3px solid var(--accent-color); box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4); text-align: center; }
-        .product-card h3 { color: white; margin-bottom: 10px; }
-        .price { font-size: 1.5em; color: var(--accent-color); font-weight: bold; margin-bottom: 15px; }
         
         .pesan-button {
             display: block;
@@ -154,6 +181,20 @@
         
         .pesan-button:hover { background-color: #388e3c; }
 
+        /* --- Kontak Form Styles --- */
+        .contact-form-container {
+            background-color: var(--dark-bg);
+            padding: 40px;
+            border-radius: 10px;
+            width: 100%;
+            max-width: 450px;
+            margin: 0 auto;
+            box-shadow: 0 0 20px rgba(0, 188, 212, 0.15);
+        }
+        .contact-form-container label { color: var(--accent-color); display: block; margin-top: 15px; margin-bottom: 5px;}
+        .contact-form-container input, .contact-form-container textarea { width: 100%; padding: 10px; border: 1px solid var(--border-color); background-color: var(--secondary-bg); color: var(--primary-text); border-radius: 5px; }
+        .contact-form-container button { width: 100%; padding: 10px; background-color: var(--accent-color); color: var(--dark-bg); border: none; border-radius: 5px; cursor: pointer; margin-top: 25px; font-weight: bold; }
+        
         /* --- Footer --- */
         footer {
             background-color: var(--secondary-bg);
@@ -164,75 +205,113 @@
             border-top: 1px solid var(--border-color);
         }
         
+        /* --- Responsif Sederhana --- */
         @media (max-width: 768px) {
             .nav-links ul { flex-wrap: wrap; justify-content: center; }
             .nav-links ul li { margin: 5px 10px; }
-            .product-highlight { flex-direction: column; text-align: center; }
-            .highlight-img { max-width: 100%; margin-bottom: 20px; }
-            .highlight-detail { max-width: 100%; text-align: center; }
-            .highlight-detail h2 { text-align: center; }
-            .product-card { width: 90%; }
-            #main-content-area { padding: 30px 20px; }
+            .service-list { flex-direction: column; align-items: center;}
+            .service-item { width: 90%; }
+            .product-grid, .portfolio-grid { gap: 20px; }
+            .product-card, .portfolio-item { width: 90%; }
         }
     </style>
 </head>
 <body>
 
     <header class="main-header">
-        <div class="logo"><a href="javascript:void(0)">YILZISTORE</a></div>
+        <div class="logo"><a href="javascript:void(0)">STYZENID DIGITAL</a></div>
         <nav class="nav-links">
             <ul>
                 <li><a href="javascript:void(0)" class="tab-link active" data-tab="home">🏠 Beranda</a></li>
-                <li><a href="javascript:void(0)" class="tab-link" data-tab="products">🛒 Daftar Produk</a></li>
-                <li><a href="javascript:void(0)" class="tab-link" data-tab="contact">📧 Kontak Instan</a></li>
-                <li><a href="javascript:void(0)" class="tab-link" data-tab="wa-cta">🟢 Pesan Sekarang (WA)</a></li>
+                <li><a href="javascript:void(0)" class="tab-link" data-tab="products">🛒 Produk</a></li>
+                <li><a href="javascript:void(0)" class="tab-link" data-tab="portfolio">📂 Portofolio</a></li>
+                <li><a href="javascript:void(0)" class="tab-link" data-tab="feedback">📝 Saran/Feedback</a></li> 
+                <li><a href="javascript:void(0)" class="tab-link" data-tab="links">🔗 Link & Profil</a></li>
             </ul>
         </nav>
     </header>
 
     <section id="main-content-area">
 
-        <div id="home" class="tab-content active" style="text-align: center;">
-            <h1 style="font-size: 3em; color: white; text-shadow: 0 0 10px var(--accent-color);">Selamat Datang di Toko Digital Anda</h1>
-            <p style="font-size: 1.2em; margin: 20px 0 40px;">Kami menyediakan layanan digital premium dengan akses cepat dan harga terbaik.</p>
-            
-            <div class="product-highlight">
-                <img src="https://via.placeholder.com/400x300/1e1e1e/00bcd4?text=Jasa+Desain+Premium" alt="Jasa Desain Logo" class="highlight-img">
-                <div class="highlight-detail">
-                    <h2>Jasa Desain Logo Kustom (Sorotan)</h2>
-                    <p>
-                        **Deskripsi Produk:** Layanan desain grafis eksklusif untuk branding Anda. Dapatkan 3 konsep desain berbeda, revisi tanpa batas, dan file master siap cetak dalam waktu 24 jam. Cocok untuk *startup* dan bisnis yang ingin tampil profesional.
-                    </p>
-                    <p class="price">Mulai dari Rp 150.000</p>
-                    <a href="https://api.whatsapp.com/send?phone=628123456789&text=Halo%2C%20saya%20tertarik%20dengan%20Jasa%20Desain%20Logo%20Premium%20yang%20ada%20di%20Beranda." target="_blank" class="pesan-button" style="width: auto; display: inline-block; padding: 10px 20px;">Pesan Jasa Ini Sekarang</a>
-                </div>
+        <div id="home" class="tab-content active">
+            <div class="hero-section">
+                <h1>Jasa Revisi & Desain Website Mulai dari Rp 50 Ribu!</h1>
+                <p style="margin-top: 15px; font-size: 1.2em; color: var(--accent-color);">Oleh StyzenID Digital: Solusi Cepat dan Hemat untuk Tampilan Web Profesional.</p>
             </div>
             
-            <p style="margin-top: 30px; font-size: 1.1em;"><a href="javascript:void(0)" class="tab-link" data-tab="products" style="color: var(--accent-color);">Lihat Semua Produk kami di sini.</a></p>
+            <h2>Layanan Unggulan Kami</h2>
+
+            <div class="service-list">
+                <div class="service-item">
+                    <h3>Revisi Konsep Cepat</h3>
+                    <p>Memperbaiki bug, tata letak, dan responsivitas web yang sudah ada.</p>
+                    <p class="price">Rp 50.000</p>
+                </div>
+                <div class="service-item">
+                    <h3>Jasa Desain Website Landing Page</h3>
+                    <p>Membuat halaman web modern statis 1 halaman siap pakai.</p>
+                    <p class="price">Rp 150.000</p>
+                </div>
+                <div class="service-item">
+                    <h3>Optimasi Konten & SEO Dasar</h3>
+                    <p>Meningkatkan kecepatan loading dan struktur SEO dasar web Anda.</p>
+                    <p class="price">Rp 100.000</p>
+                </div>
+            </div>
+
+            <div style="text-align: center; margin-top: 50px;">
+                 <a href="javascript:void(0)" class="pesan-button" style="width: auto; display: inline-block; padding: 15px 40px; font-size: 1.1em;" onclick="openTabByName('products')">Lihat Semua Paket Murah</a>
+            </div>
         </div>
 
         <div id="products" class="tab-content">
-            <h2 style="font-size: 2em; margin-bottom: 40px; border-bottom: none; max-width: none;">Daftar Produk & Layanan</h2>
+            <h2>🛒 Daftar Harga Jasa Website</h2>
             <div class="product-grid">
-                <div class="product-card"><h3>Akun Premium Spotify</h3><p>1 Bulan Full Garansi</p><p class="price">Rp 25.000</p><a href="https://api.whatsapp.com/send?phone=628123456789&text=Halo%20saya%20mau%20beli%20Akun%20Premium%20Spotify%20(Rp%2025.000).%20Mohon%20info%20pembayaran." target="_blank" class="pesan-button">Pesan Sekarang di WA</a></div>
-                <div class="product-card"><h3>Jasa Desain Logo Kustom</h3><p>Mulai dari Konsep Dasar</p><p class="price">Rp 150.000</p><a href="https://api.whatsapp.com/send?phone=628123456789&text=Halo%20saya%20tertarik%20dengan%20Jasa%20Desain%20Logo%20(Rp%20150.000).%20Bisa%20konsultasi%3F" target="_blank" class="pesan-button">Pesan Sekarang di WA</a></div>
-                <div class="product-card"><h3>Lisensi Aplikasi VPN</h3><p>Lisensi 1 Tahun, Kecepatan Penuh</p><p class="price">Rp 80.000</p><a href="https://api.whatsapp.com/send?phone=628123456789&text=Halo%20saya%20mau%20beli%20Layanan%20Aplikasi%20VPN%20(Rp%2080.000).%20Mohon%20info%20pembayaran." target="_blank" class="pesan-button">Pesan Sekarang di WA</a></div>
+                <div class="product-card"><h3>Revisi Kecil (Fix Bug)</h3><p>Perbaikan 1-3 bug minor atau penyesuaian CSS.</p><p class="price">Rp 50.000</p><a href="https://api.whatsapp.com/send?phone=628123456789&text=Saya%20mau%20jasa%20Revisi%20Kecil%20(Rp%2050%20ribu)." target="_blank" class="pesan-button">Pesan Sekarang (WA)</a></div>
+                <div class="product-card"><h3>Desain Landing Page Statis</h3><p>Desain baru, responsif, HTML/CSS bersih.</p><p class="price">Rp 150.000</p><a href="https://api.whatsapp.com/send?phone=628123456789&text=Saya%20mau%20jasa%20Desain%20Landing%20Page%20(Rp%20150%20ribu)." target="_blank" class="pesan-button">Pesan Sekarang (WA)</a></div>
+                <div class="product-card"><h3>Revisi Konsep Total</h3><p>Perubahan tata letak besar dan penyesuaian responsivitas.</p><p class="price">Rp 85.000</p><a href="https://api.whatsapp.com/send?phone=628123456789&text=Saya%20mau%20jasa%20Revisi%20Konsep%20Total%20(Rp%2085%20ribu)." target="_blank" class="pesan-button">Pesan Sekarang (WA)</a></div>
             </div>
         </div>
 
-        <div id="contact" class="tab-content" style="text-align: center;">
-            <h2 style="font-size: 2em; margin-bottom: 40px; border-bottom: none; max-width: none;">Hubungi Kami (Kirim Pesan)</h2>
-            <p style="color: #ccc; margin-bottom: 25px;">Data form ini akan dikirimkan ke email Anda melalui Netlify.</p>
-            <div class="contact-form-container">
-                <form name="form_kontak_yilzi" method="POST" data-netlify="true" onsubmit="alert('Pesan berhasil dikirim! Silakan cek dashboard Netlify Anda.');">
-                    <label for="nama_kontak">Nama</label>
-                    <input type="text" id="nama_kontak" name="Nama_Pengirim" required>
+        <div id="portfolio" class="tab-content">
+            <h2>📂 Contoh Hasil Kerja Kami</h2>
+            <div class="portfolio-grid">
+                <div class="portfolio-item">
+                    <img src="https://via.placeholder.com/350x200/444466/FFFFFF?text=PORTFOLIO+1+(Revisi+UI)" alt="Portofolio 1">
+                    <h4>Web App Revisi Konsep</h4>
+                    <p style="font-size: 0.9em; color: #bbb;">Jasa perbaikan UI/UX dan responsivitas web statis.</p>
+                </div>
+                <div class="portfolio-item">
+                    <img src="https://via.placeholder.com/350x200/444466/FFFFFF?text=PORTFOLIO+2+(Landing+Page)" alt="Portofolio 2">
+                    <h4>Desain Landing Page Bisnis</h4>
+                    <p style="font-size: 0.9em; color: #bbb;">Landing Page modern untuk startup teknologi.</p>
+                </div>
+                <div class="portfolio-item">
+                    <img src="https://via.placeholder.com/350x200/444466/FFFFFF?text=PORTFOLIO+3+(Fix+Bug)" alt="Portofolio 3">
+                    <h4>Perbaikan Bug PHP & HTML</h4>
+                    <p style="font-size: 0.9em; color: #bbb;">Memperbaiki 5 bug fatal di sistem pemesanan.</p>
+                </div>
+            </div>
+        </div>
 
-                    <label for="email_kontak">Email</label>
-                    <input type="email" id="email_kontak" name="Email_Pengirim" required>
+        <div id="feedback" class="tab-content" style="text-align: center;">
+            <h2>📝 Kirim Saran & Masukan</h2>
+            <p style="color: #ccc; margin-bottom: 25px;">Bantu kami meningkatkan layanan! Saran Anda akan langsung terkirim ke email tim StyzenID Digital.</p>
+            <div class="contact-form-container">
+                <form name="form_saran_styzenid" method="POST" data-netlify="true" onsubmit="alert('Terima kasih! Saran Anda berhasil dikirim dan akan kami pertimbangkan.');">
+                    <label for="nama_saran">Nama (Opsional)</label>
+                    <input type="text" id="nama_saran" name="Nama_Pengirim">
+
+                    <label for="email_saran">Email Anda</label>
+                    <input type="email" id="email_saran" name="Email_Pengirim" required>
                     
-                    <label for="pesan_kontak">Pesan Anda</label>
-                    <textarea id="pesan_kontak" name="Pesan" required></textarea>
+                    <label for="saran">Saran / Masukan Anda</label>
+                    <textarea id="saran" name="Saran" required></textarea>
+
+                    <button type="submit">KIRIM SARAN</button>
+                </form>
+            </div>
+        </div>tarea id="pesan_kontak" name="Pesan" required></textarea>
 
                     <button type="submit">KIRIM PESAN</button>
                 </form>
