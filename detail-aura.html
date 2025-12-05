@@ -3,38 +3,129 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>StyzenID Digital - Revisi & Desain Website Murah</title>
-    
-    <style>
-        /* Variabel Warna Profesional */
-        :root {
-            --dark-bg: #1a1a2e; /* Biru Gelap Tua */
-            --secondary-bg: #2c2c44; 
-            --primary-text: #e0e0e0;
-            --accent-color: #00bcd4; /* Sian */
-            --button-color: #4CAF50; /* Hijau WA */
-            --border-color: #444466;
-        }
+    <title>Detail: Aura Modern Template - TOKO DIGITAL MODERN</title>
+    <link rel="stylesheet" href="style.css"> 
+</head>
+<body>
 
-        /* [Reset dan Gaya Dasar] */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        }
+    <header class="header">
+        </header>
 
-        body {
-            background-color: var(--dark-bg);
-            color: var(--primary-text);
-            line-height: 1.6;
-            scroll-behavior: smooth; 
-        }
+    <main class="container product-detail">
+        <div class="product-card-detail">
+            
+            <section class="main-info">
+                <h2 class="product-title">Aura Modern - Template Toko Online</h2>
+                <div class="price-section">
+                    <span class="current-price">$30</span>
+                    <span class="price-note">Lisensi Penggunaan Tunggal</span>
+                </div>
+                
+                <p class="short-description">
+                    Template HTML/CSS premium dengan desain minimalis dan nuansa gelap yang profesional. Sempurna untuk toko digital atau landing page modern.
+                </p>
 
-        /* --- Header dan Navigasi Atas (Tombol Tab) --- */
-        .main-header {
-            background-color: var(--secondary-bg);
-            padding: 15px 50px;
+                <button class="buy-button" onclick="alert('Hubungi kami via Telegram untuk melanjutkan pembayaran $30 melalui PayPal!')">
+                    Beli Template Sekarang
+                </button>
+                <p class="payment-instruction">
+                    **Alur Pembelian:** Bayar via **PayPal**, kirim bukti transfer ke **Telegram**. File ZIP akan dikirim manual setelah konfirmasi.
+                </p>
+
+                <div class="trust-badges">
+                    <div class="badge">
+                        <span class="icon-verified">🛡️</span>
+                        <p>File Bersih, 100% Bebas Malware.</p>
+                    </div>
+                    <div class="badge">
+                        <span class="icon-support">✅</span>
+                        <p>Logo Verifed: Transaksi PayPal Terproteksi.</p>
+                    </div>
+                </div>
+            </section>
+
+            <section class="tabs-area">
+                <div class="tab-buttons">
+                    <button class="tab-link active" onclick="openTab(event, 'Fitur')">1. Fitur Utama</button>
+                    <button class="tab-link" onclick="openTab(event, 'Spesifikasi')">2. Spesifikasi Teknis</button>
+                    <button class="tab-link" onclick="openTab(event, 'Kompatibel')">3. Kompatibilitas</button>
+                    <button class="tab-link" onclick="openTab(event, 'Instalasi')">4. Panduan Instalasi</button>
+                    <button class="tab-link" onclick="openTab(event, 'Lisensi')">5. Ketentuan Lisensi</button>
+                    <button class="tab-link" onclick="openTab(event, 'Dukungan')">6. Dukungan & Update</button>
+                </div>
+
+                <div id="Fitur" class="tab-content" style="display: block;">
+                    <h4>Highlight Template Aura Modern</h4>
+                    <ul>
+                        <li>**Dark Mode Otomatis:** Warna akan menyesuaikan dengan *setting* pengguna.</li>
+                        <li>**SEO Optimized:** Struktur HTML yang ramah mesin pencari.</li>
+                        <li>**Minimal JavaScript:** Loading sangat cepat dan ringan.</li>
+                    </ul>
+                </div>
+
+                <div id="Spesifikasi" class="tab-content">
+                    <h4>Apa yang Ada dalam Paket ZIP?</h4>
+                    <p>Jumlah File: 15 (termasuk 5 halaman HTML & 1 file CSS)</p>
+                    <p>Framework CSS: Vanilla CSS (Tidak butuh Bootstrap/Tailwind)</p>
+                    <p>Ukuran File: < 1MB</p>
+                </div>
+
+                <div id="Kompatibel" class="tab-content">
+                    <h4>Kompatibilitas Hosting</h4>
+                    <p>Template ini dapat di-*host* di semua jenis hosting yang mendukung file HTML/CSS (termasuk GitHub Pages dan cPanel).</p>
+                    <p>Kompatibel dengan semua *browser* modern (Chrome, Firefox, Edge).</p>
+                </div>
+
+                <div id="Instalasi" class="tab-content">
+                    <h4>Panduan Singkat Instalasi</h4>
+                    <ol>
+                        <li>Unzip file yang kami kirimkan via Telegram.</li>
+                        <li>Upload semua folder dan file ke direktori utama hosting Anda (public_html).</li>
+                        <li>Edit file `index.html` dan `style.css` untuk kustomisasi konten.</li>
+                    </ol>
+                </div>
+
+                <div id="Lisensi" class="tab-content">
+                    <h4>Ketentuan Penggunaan</h4>
+                    <p>Lisensi ini adalah Lisensi Penggunaan Tunggal. Anda dapat menggunakannya untuk satu proyek (satu domain) pribadi atau klien.</p>
+                    <p>Dilarang menjual kembali atau mendistribusikan *source code* template ini.</p>
+                </div>
+                
+                <div id="Dukungan" class="tab-content">
+                    <h4>Layanan Purna Jual</h4>
+                    <p>Kami menyediakan dukungan via Telegram selama 30 hari untuk bug dan masalah tampilan dasar.</p>
+                    <p>Update minor template akan diberikan gratis selama 1 tahun.</p>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <footer class="footer">
+        </footer>
+
+    <script>
+        function openTab(evt, tabName) {
+            var i, tabcontent, tablinks;
+            tabcontent = document.getElementsByClassName("tab-content");
+            for (i = 0; i < tabcontent.length; i++) {
+                tabcontent[i].style.display = "none";
+            }
+            tablinks = document.getElementsByClassName("tab-link");
+            for (i = 0; i < tablinks.length; i++) {
+                tablinks[i].className = tablinks[i].className.replace(" active", "");
+            }
+            document.getElementById(tabName).style.display = "block";
+            evt.currentTarget.className += " active";
+        }
+        
+        // Wajib ada: JavaScript untuk fungsi Hamburger
+        function toggleMenu() {
+            const nav = document.getElementById('main-nav');
+            nav.classList.toggle('active');
+        }
+    </script>
+</body>
+    </html>            padding: 15px 50px;
             display: flex;
             justify-content: space-between;
             align-items: center;
