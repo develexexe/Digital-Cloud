@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>YILZISTORE - Toko Digital & Layanan Premium (Netlify Ready)</title>
+    <title>StyzenStore - Toko Layanan Digital</title>
     
     <style>
         /* Variabel Warna Digital Keren */
@@ -16,7 +16,7 @@
             --border-color: #333;
         }
 
-        /* Reset dan Gaya Dasar */
+        /* [Reset dan Gaya Dasar] */
         * {
             margin: 0;
             padding: 0;
@@ -31,10 +31,268 @@
             scroll-behavior: smooth; 
         }
 
-        /* Header dan Navigasi */
+        /* --- Header dan Navigasi Atas (Tab Kontrol) --- */
         .main-header {
             background-color: var(--secondary-bg);
             padding: 15px 50px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+        }
+
+        .logo a {
+            font-size: 1.5em;
+            font-weight: bold;
+            color: var(--accent-color);
+            text-decoration: none;
+            letter-spacing: 1px;
+        }
+
+        .nav-links ul { 
+            list-style: none; 
+            display: flex; 
+        }
+
+        .nav-links ul li { 
+            margin-left: 25px; 
+        }
+
+        .nav-links a { 
+            color: var(--primary-text); 
+            text-decoration: none; 
+            padding: 5px 0; 
+            border-bottom: 3px solid transparent; 
+            transition: border-bottom 0.3s, color 0.3s;
+            font-size: 1.1em;
+        }
+
+        .nav-links a:hover,
+        .nav-links a.active {
+            color: white;
+            border-bottom: 3px solid var(--accent-color);
+        }
+
+        /* --- Area Konten Utama --- */
+        #main-content-area {
+            padding: 50px 50px;
+            min-height: 90vh;
+        }
+
+        .tab-content {
+            display: none;
+            padding: 20px 0;
+            animation: fadeIn 0.5s;
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        
+        /* --- Style Khusus Beranda --- */
+        .product-highlight {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 40px;
+            margin-top: 40px;
+            padding: 30px;
+            background-color: var(--secondary-bg);
+            border-radius: 10px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+        }
+
+        .highlight-img {
+            max-width: 40%;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+        }
+
+        .highlight-detail {
+            max-width: 50%;
+            text-align: left;
+        }
+
+        .highlight-detail h2 {
+            color: var(--accent-color);
+            border-bottom: none;
+            text-align: left;
+            margin-bottom: 10px;
+        }
+
+        .highlight-detail .price {
+            font-size: 1.8em;
+            color: var(--button-color);
+            font-weight: bold;
+            margin: 15px 0;
+        }
+        
+        /* --- Style Produk Grid (Digunakan juga di tab Produk) --- */
+        .product-grid { display: flex; justify-content: center; gap: 30px; flex-wrap: wrap; }
+        .product-card { background-color: var(--secondary-bg); padding: 20px; width: 300px; border-radius: 8px; border-left: 3px solid var(--accent-color); box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4); text-align: center; }
+        .product-card h3 { color: white; margin-bottom: 10px; }
+        .price { font-size: 1.5em; color: var(--accent-color); font-weight: bold; margin-bottom: 15px; }
+        
+        .pesan-button {
+            display: block;
+            background-color: var(--button-color); 
+            color: white;
+            padding: 10px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: bold;
+            margin-top: 15px;
+        }
+        
+        .pesan-button:hover { background-color: #388e3c; }
+
+        /* --- Footer --- */
+        footer {
+            background-color: var(--secondary-bg);
+            text-align: center;
+            padding: 20px;
+            color: #777;
+            font-size: 0.9em;
+            border-top: 1px solid var(--border-color);
+        }
+        
+        @media (max-width: 768px) {
+            .nav-links ul { flex-wrap: wrap; justify-content: center; }
+            .nav-links ul li { margin: 5px 10px; }
+            .product-highlight { flex-direction: column; text-align: center; }
+            .highlight-img { max-width: 100%; margin-bottom: 20px; }
+            .highlight-detail { max-width: 100%; text-align: center; }
+            .highlight-detail h2 { text-align: center; }
+            .product-card { width: 90%; }
+            #main-content-area { padding: 30px 20px; }
+        }
+    </style>
+</head>
+<body>
+
+    <header class="main-header">
+        <div class="logo"><a href="javascript:void(0)">YILZISTORE</a></div>
+        <nav class="nav-links">
+            <ul>
+                <li><a href="javascript:void(0)" class="tab-link active" data-tab="home">🏠 Beranda</a></li>
+                <li><a href="javascript:void(0)" class="tab-link" data-tab="products">🛒 Daftar Produk</a></li>
+                <li><a href="javascript:void(0)" class="tab-link" data-tab="contact">📧 Kontak Instan</a></li>
+                <li><a href="javascript:void(0)" class="tab-link" data-tab="wa-cta">🟢 Pesan Sekarang (WA)</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section id="main-content-area">
+
+        <div id="home" class="tab-content active" style="text-align: center;">
+            <h1 style="font-size: 3em; color: white; text-shadow: 0 0 10px var(--accent-color);">Selamat Datang di Toko Digital Anda</h1>
+            <p style="font-size: 1.2em; margin: 20px 0 40px;">Kami menyediakan layanan digital premium dengan akses cepat dan harga terbaik.</p>
+            
+            <div class="product-highlight">
+                <img src="https://via.placeholder.com/400x300/1e1e1e/00bcd4?text=Jasa+Desain+Premium" alt="Jasa Desain Logo" class="highlight-img">
+                <div class="highlight-detail">
+                    <h2>Jasa Desain Logo Kustom (Sorotan)</h2>
+                    <p>
+                        **Deskripsi Produk:** Layanan desain grafis eksklusif untuk branding Anda. Dapatkan 3 konsep desain berbeda, revisi tanpa batas, dan file master siap cetak dalam waktu 24 jam. Cocok untuk *startup* dan bisnis yang ingin tampil profesional.
+                    </p>
+                    <p class="price">Mulai dari Rp 150.000</p>
+                    <a href="https://api.whatsapp.com/send?phone=628123456789&text=Halo%2C%20saya%20tertarik%20dengan%20Jasa%20Desain%20Logo%20Premium%20yang%20ada%20di%20Beranda." target="_blank" class="pesan-button" style="width: auto; display: inline-block; padding: 10px 20px;">Pesan Jasa Ini Sekarang</a>
+                </div>
+            </div>
+            
+            <p style="margin-top: 30px; font-size: 1.1em;"><a href="javascript:void(0)" class="tab-link" data-tab="products" style="color: var(--accent-color);">Lihat Semua Produk kami di sini.</a></p>
+        </div>
+
+        <div id="products" class="tab-content">
+            <h2 style="font-size: 2em; margin-bottom: 40px; border-bottom: none; max-width: none;">Daftar Produk & Layanan</h2>
+            <div class="product-grid">
+                <div class="product-card"><h3>Akun Premium Spotify</h3><p>1 Bulan Full Garansi</p><p class="price">Rp 25.000</p><a href="https://api.whatsapp.com/send?phone=628123456789&text=Halo%20saya%20mau%20beli%20Akun%20Premium%20Spotify%20(Rp%2025.000).%20Mohon%20info%20pembayaran." target="_blank" class="pesan-button">Pesan Sekarang di WA</a></div>
+                <div class="product-card"><h3>Jasa Desain Logo Kustom</h3><p>Mulai dari Konsep Dasar</p><p class="price">Rp 150.000</p><a href="https://api.whatsapp.com/send?phone=628123456789&text=Halo%20saya%20tertarik%20dengan%20Jasa%20Desain%20Logo%20(Rp%20150.000).%20Bisa%20konsultasi%3F" target="_blank" class="pesan-button">Pesan Sekarang di WA</a></div>
+                <div class="product-card"><h3>Lisensi Aplikasi VPN</h3><p>Lisensi 1 Tahun, Kecepatan Penuh</p><p class="price">Rp 80.000</p><a href="https://api.whatsapp.com/send?phone=628123456789&text=Halo%20saya%20mau%20beli%20Layanan%20Aplikasi%20VPN%20(Rp%2080.000).%20Mohon%20info%20pembayaran." target="_blank" class="pesan-button">Pesan Sekarang di WA</a></div>
+            </div>
+        </div>
+
+        <div id="contact" class="tab-content" style="text-align: center;">
+            <h2 style="font-size: 2em; margin-bottom: 40px; border-bottom: none; max-width: none;">Hubungi Kami (Kirim Pesan)</h2>
+            <p style="color: #ccc; margin-bottom: 25px;">Data form ini akan dikirimkan ke email Anda melalui Netlify.</p>
+            <div class="contact-form-container">
+                <form name="form_kontak_yilzi" method="POST" data-netlify="true" onsubmit="alert('Pesan berhasil dikirim! Silakan cek dashboard Netlify Anda.');">
+                    <label for="nama_kontak">Nama</label>
+                    <input type="text" id="nama_kontak" name="Nama_Pengirim" required>
+
+                    <label for="email_kontak">Email</label>
+                    <input type="email" id="email_kontak" name="Email_Pengirim" required>
+                    
+                    <label for="pesan_kontak">Pesan Anda</label>
+                    <textarea id="pesan_kontak" name="Pesan" required></textarea>
+
+                    <button type="submit">KIRIM PESAN</button>
+                </form>
+            </div>
+        </div>
+
+        <div id="wa-cta" class="tab-content" style="text-align: center;">
+            <h2 style="font-size: 2em; margin-bottom: 40px; border-bottom: none; max-width: none;">Layanan Cepat 24 Jam</h2>
+            <p style="margin-bottom: 30px; color: #ccc;">Hubungi kami langsung via WhatsApp untuk pertanyaan, custom order, atau bantuan teknis.</p>
+            
+            <a href="https://api.whatsapp.com/send?phone=628123456789&text=Halo%20YilziStore%2C%20saya%20ingin%20bertanya%20tentang%20layanan%20Anda." target="_blank" class="pesan-button" style="background-color: #25D366; width: auto; display: inline-block; padding: 15px 40px; font-size: 1.2em;">
+                <span style="font-size: 1.5em; vertical-align: middle;">🟢</span> CHAT VIA WHATSAPP
+            </a>
+            
+            <p style="margin-top: 50px; font-size: 0.9em; color: #555;">Kami siap melayani Anda. Klik tombol di atas, pesan akan otomatis terisi.</p>
+        </div>
+
+    </section>
+
+    <footer>&copy; 2025 YILZISTORE. Dibuat dengan HTML & CSS Sederhana.</footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const tabLinks = document.querySelectorAll('.tab-link');
+            
+            function openTab(tabName) {
+                // 1. Sembunyikan semua konten tab
+                document.querySelectorAll('.tab-content').forEach(content => {
+                    content.classList.remove('active');
+                });
+                
+                // 2. Hapus kelas 'active' dari semua tautan navigasi
+                tabLinks.forEach(link => {
+                    link.classList.remove('active');
+                });
+
+                // 3. Tampilkan konten tab yang dipilih
+                const targetContent = document.getElementById(tabName);
+                if (targetContent) {
+                    targetContent.classList.add('active');
+                }
+
+                // 4. Tambahkan kelas 'active' ke tautan yang diklik
+                document.querySelector(`[data-tab="${tabName}"]`).classList.add('active');
+            }
+
+            // Atur event listener pada tautan navigasi
+            tabLinks.forEach(link => {
+                link.addEventListener('click', (e) => {
+                    const tabName = e.currentTarget.getAttribute('data-tab');
+                    openTab(tabName);
+                });
+            });
+
+            // Atur tab 'home' sebagai default saat halaman dimuat
+            openTab('home');
+        });
+    </script>
+</body>
+</html>            padding: 15px 50px;
             display: flex;
             justify-content: space-between;
             align-items: center;
